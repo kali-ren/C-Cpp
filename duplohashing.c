@@ -28,7 +28,7 @@ int newp(int primold){
 	i = primold-1;
 	if(i>1){
 		while(i>1 && a==0){
-			if(primo(i)==1){
+			if(!primo(i)){
 				a=1;
 			}
 			else{
