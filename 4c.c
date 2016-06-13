@@ -40,7 +40,7 @@ void alocation(celula *lista,int tam){
 main(){
 	int i,tam=1000;
 	FILE *fp;
-	fp=fopen("atenexorp.txt","w");
+	fp=fopen("lista.txt","w");
 	if(fp==NULL)
 		printf("deu ruim\n");
 	while (tam <= max){	
