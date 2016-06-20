@@ -9,8 +9,10 @@ typedef struct no{
 	char nome[20],complemento[20];
 	struct no *prox;
 }no;
+
 char alfa[27]={"abcdefghijklmnopqrstuvwxyz"};
 int num[10]={0,1,2,3,4,5,6,7,8,9};
+
 void show(no *l){
 	no *p;
 	for(p = l->prox; p != NULL; p = p->prox)
@@ -64,7 +66,7 @@ void insert(no *pc){//criar lista
 	}
 }
 main(){
-	int i,r=1,tam=1000,j;
+	int i,r=1,tam=1000,j,cont=1;
 	no head,*c,*aux;
 	FILE *fp;
 	fp = fopen("3c.txt","w");
@@ -73,7 +75,7 @@ main(){
 	srand((unsigned)time(NULL));
 	for(i=1;i<=maxx;i++)
 		insert(c);
-	for(aux=head.prox;aux != NULL;aux=aux->prox){
+	for(aux=head.prox; aux == NULL; aux=aux->prox){
 		atribuicao(alfa,num,aux);
 	}
 	while(tam <= maxx){
@@ -88,10 +90,12 @@ main(){
 			media += tempogasto;
 		}
 		media /= 100;
-		printf("%d %f\n",tam,media);
-		fprintf(fp,"%d %f\n",tam,media);
+		printf("%d %f\n",cont,media);
+		fprintf(fp,"%d %f\n",cont,media);
 		r += 1000;
 		tam += 1000;
+		cont++;
+
 	}
 	fclose(fp);
 }
